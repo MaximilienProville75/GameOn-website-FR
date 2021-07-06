@@ -11,9 +11,6 @@ function editNav() {
   }
 
 }
-
-
-
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -47,12 +44,9 @@ const loc3 = document.getElementById ('location3');
 const loc4 = document.getElementById ('location4');
 const loc5 = document.getElementById ('location5');
 const loc6 = document.getElementById ('location6');
-
 const dateFormat = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 const numbers = /^[0-9]+$/;
-
 const validation = document.getElementById ('checkbox1')
-
 const errorFirst = document.getElementById ('error-first');
 const errorLast = document.getElementById ('error-last');
 const errorMail = document.getElementById ('error-mail');
@@ -71,96 +65,93 @@ form.addEventListener('submit', (e) => {
 })
 
 function validate () {
-  let firstChecked;
-  let lastChecked;
-  let mailChecked;
-  let birthChecked;
-  let tournamentChecked;
-  let radioChecked;
-  let conditionsChecked;
+  let firstChecked = false;
+  let lastChecked = false;
+  let mailChecked = false;
+  let birthChecked = false;
+  let tournamentChecked = false;
+  let radioChecked = false;
+  let conditionsChecked = false;
 
-  console.log(birthDate.value)
-
+  const parentFirstName = firstName.parentNode;
   if (!firstName.value.match(/(.*[a-z]){2}/i) || firstName.value == ' ' || firstName.value == null || firstName.value.length < 2) {
-    errorFirst.innerText = 'At least two character require.';
-    errorFirst.style.color = 'red';
-    errorFirst.style.fontSize = '0.8rem';
-    firstName.style.border = 'solid red 2px';
-  } else {
+    parentFirstName.setAttribute("data-error", 'Please fill in your First Name');
+    parentFirstName.setAttribute("data-error-visible", "true");
+    } else {
+    parentFirstName.setAttribute("data-error-visible", "false");
     firstChecked = true;
   };
 
-    if (!lastName.value.match(/(.*[a-z]){2}/i) || lastName.value == ' ' || lastName.value == null || lastName.value.length < 2) { 
-      errorLast.innerText = 'At least two character require.';
-      errorLast.style.color = 'red';
-      errorLast.style.fontSize = '0.8rem';
-      lastName.style.border = 'solid red 2px';      
-  }  else {
-    errorLast.style.display = 'none';
-    lastName.style.border = 'none';
+  const parentLastName = lastName.parentNode;
+  if (!lastName.value.match(/(.*[a-z]){2}/i) || lastName.value == ' ' || lastName.value == null || lastName.value.length < 2) { 
+    parentLastName.setAttribute("data-error", 'Please fill in your Last Name');
+    parentLastName.setAttribute("data-error-visible", "true");
+    } else {
+    parentLastName.setAttribute("data-error-visible", "false");
     lastChecked = true;
   };
 
+  const parentEmail = eMail.parentNode;
     if (!/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/ .test(eMail.value)) { 
-      errorMail.innerText = 'Please enter a valid email address';
-      errorMail.style.color = 'red';
-      errorMail.style.fontSize = '0.8rem';
-      eMail.style.border = 'solid red 2px';
-  } else {
-    errorMail.style.display = 'none';
-    eMail.style.border = 'none';
+      parentEmail.setAttribute("data-error", 'Please fill in your eMail');
+      parentEmail.setAttribute("data-error-visible", "true");
+      } else {
+      parentEmail.setAttribute("data-error-visible", "false");
     mailChecked = true;
   };
 
-  if (!birthDate.value.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) { 
-    errorBirth.innerText = 'Please fill in your date of birth';
-    errorBirth.style.color = 'red';
-    errorBirth.style.fontSize = '0.8rem';
-    birthDate.style.border = 'solid red 2px';
+  const parent = birthDate.parentNode;
+  const now = new Date();
+  const myBirthDate = new Date(birthDate.value);
+  if (now < myBirthDate) {
+    parent.setAttribute("data-error", 'Please fill in your date of birth');
+    parent.setAttribute("data-error-visible", "true");
     } else {
-    errorBirth.style.display = 'none';
-    birthDate.style.border = 'none';
+    parent.setAttribute("data-error-visible", "false");
     birthChecked = true;      
     }
 
+  const parent_1 = quantityTournament.parentNode;
   if (!quantityTournament.value.match(numbers)) { 
-    errorQuantity.innerText = 'You must enter a valid number';
-    errorQuantity.style.color = 'red';
-    errorQuantity.style.fontSize = '0.8rem';
-    quantityTournament.style.border = 'solid red 2px';
+    parent_1.setAttribute("data-error", 'You must enter a valid number');
+    parent_1.setAttribute("data-error-visible", "true");;
   } else {
-    errorQuantity.style.display = 'none';
-    quantityTournament.style.border = 'none';
+    parent_1.setAttribute("data-error-visible", "false");
     tournamentChecked = true;
   };
 
+  const parent_2 = loc1.parentNode;
   if (!loc1.checked && !loc2.checked && !loc3.checked && !loc4.checked && !loc5.checked && !loc6.checked) { 
-    errorCity.innerText = 'A city must be chosen';
-    errorCity.style.color = 'red';
-    errorCity.style.fontSize = '0.8rem';          
+    parent_2.setAttribute("data-error", 'A city must be chosen');
+    parent_2.setAttribute("data-error-visible", "true");;          
   } else {
-    errorCity.style.display = 'none';
+    parent_2.setAttribute("data-error-visible", "false");
     radioChecked = true;
   };
 
+
+  const parent_3 = validation.parentNode;
   if (!validation.checked) {
-    errorValidation.innerText = 'Terms and condition must be accepted';
-    errorValidation.style.color = 'red';
-    errorValidation.style.fontSize = '0.8rem';
-    errorValidation.style.marginBottom = '20px';
+    parent_3.setAttribute("data-error", 'Terms and condition must be accepted');
+    parent_3.setAttribute("data-error-visible", "true");;      
   } else {
-    errorValidation.style.display = 'none';
+    parent_3.setAttribute("data-error-visible", "false");
     conditionsChecked = true;
   };
 
 
-  if (firstChecked == true && lastChecked == true && mailChecked == true && tournamentChecked == true && radioChecked == true && conditionsChecked == true && birthChecked == true) {
+  if (firstChecked && lastChecked && mailChecked & tournamentChecked && radioChecked && conditionsChecked && birthChecked) {
     form.style.display = "none";
     confirmation.style.display = "flex";
+    form.reset()
   }
 
 
 }
 
 
-confirmationCloseBtn[0].addEventListener("click", closeModal);
+confirmationCloseBtn[0].addEventListener("click", () => {
+  closeModal();
+  form.style.display = "block";
+  confirmation.style.display = "none";
+});

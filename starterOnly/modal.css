@@ -166,7 +166,7 @@ main {
 
 .modal-body {
   padding: 10px 8%;
-  margin: 15px auto;
+  margin: 53px auto;
 }
 
 label {
@@ -199,7 +199,7 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
@@ -405,7 +405,6 @@ input {
   font-size: 14px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -489,7 +488,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1100px) {
   .topnav.responsive {
     position: relative;
   }
@@ -536,13 +535,8 @@ footer {
 
 @media screen and (max-width: 540px) {
   .copyrights {
-    margin-top: 0 !important;
-    position: absolute;
-    position: absolute;
-    left: 16.46%;
-    right: 16.87%;
-    bottom: 33.33%;
-    top: 95%;
+    margin-top: 50px;
+    text-align: center;
   }
   .topnav a {display: none;}
   .topnav a.icon {
@@ -570,6 +564,7 @@ footer {
     width: 103px;
   }
   .copyrights {
+    left: 95px;
     font-size: 10px;
   }
   .bground {
@@ -599,7 +594,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 832px) {
 
   .topnav.responsive .main-navbar {
     box-shadow: 4px 5px 5px darkred;
@@ -624,7 +619,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 832px) {
   .topnav.responsive {
     position: relative;
     height: 43px;
