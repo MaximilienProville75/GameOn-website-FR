@@ -103,7 +103,8 @@ function validate () {
   const parent = birthDate.parentNode;
   const now = new Date();
   const myBirthDate = new Date(birthDate.value);
-  if (now < myBirthDate || birthDate == null){
+  const parseBirthDate = Date.parse(birthDate.value);
+  if (now < myBirthDate || !parseBirthDate){
     parent.setAttribute("data-error", 'Please fill in your date of birth');
     parent.setAttribute("data-error-visible", "true");
     } else {
