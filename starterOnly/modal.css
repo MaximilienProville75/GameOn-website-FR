@@ -535,8 +535,8 @@ footer {
 
 @media screen and (max-width: 540px) {
   .copyrights {
-    margin-top: 50px;
     text-align: center;
+    margin-top: 40px;
   }
   .topnav a {display: none;}
   .topnav a.icon {
@@ -582,15 +582,15 @@ footer {
     margin-top: 5px;
     margin-bottom: 10px;
   }
-  body {
-    overflow-y: hidden;
+  footer{
+    margin-top: -55px;
+    
   }
 
 }
 
 @media screen and (max-width: 320px) {
   .icon {
-    top:43px !important;
   }
 }
 
@@ -650,7 +650,50 @@ footer {
   }
 }
 
-
+@media screen and (max-width: 375px){
+  .modal-body {
+    padding: 10px 8%;
+    margin-top: 5px;
+    height: 585px;
+  }
+  #confirmation {
+    height: 400px;
+  }
+  .hero-section{
+  }
+  .hero-headline{
+    font-size: 39px;
+  }
+  .hero-text{
+    font-size: 10px;
+    margin-bottom: 0px;
+  }
+  .hero-img img{
+    height: 230px;
+  }
+  .hero-section > .btn-signup{
+    margin-top: 10px;
+  }
+  .text-control{
+    height: 30px;
+  }
+  label{
+    font-size: 12px;
+  }
+  .close{
+    height: 0px;
+  }
+  .checkbox-label, .checkbox2-label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  #confirmation .btn-close {
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    left: 0;
+  }
+}
 
 
 @keyframes modalopen {
