@@ -74,7 +74,7 @@ function validate () {
   let conditionsChecked = false;
 
   const parentFirstName = firstName.parentNode;
-  if (!firstName.value.match(/(.*[a-z]){2}/i) || firstName.value == ' ' || firstName.value == null || firstName.value.length < 2) {
+  if (!firstName.value.match(/(.*[a-z]){2}/i) || firstName.value === ' ' || firstName.value === null || firstName.value.length < 2) {
     parentFirstName.setAttribute("data-error", 'Please fill in your First Name');
     parentFirstName.setAttribute("data-error-visible", "true");
     } else {
@@ -83,7 +83,7 @@ function validate () {
   };
 
   const parentLastName = lastName.parentNode;
-  if (!lastName.value.match(/(.*[a-z]){2}/i) || lastName.value == ' ' || lastName.value == null || lastName.value.length < 2) { 
+  if (!lastName.value.match(/(.*[a-z]){2}/i) || lastName.value === ' ' || lastName.value === null || lastName.value.length < 2) { 
     parentLastName.setAttribute("data-error", 'Please fill in your Last Name');
     parentLastName.setAttribute("data-error-visible", "true");
     } else {
@@ -104,7 +104,7 @@ function validate () {
   const now = new Date();
   const myBirthDate = new Date(birthDate.value);
   const parseBirthDate = Date.parse(birthDate.value);
-  if (now < myBirthDate || !parseBirthDate){
+  if (now < myBirthDate || !parseBirthDate || myBirthDate ===  isNaN){
     parent.setAttribute("data-error", 'Please fill in your date of birth');
     parent.setAttribute("data-error-visible", "true");
     } else {
